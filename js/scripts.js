@@ -17,33 +17,33 @@ pauseBtn.addEventListener("click", pauseTimer);
 resumeBtn.addEventListener("click", resumeTimer);
 resetBtn.addEventListener("click", resetTimer);
 
-function startTimer () {
+function startTimer() {
   interval = setInterval(() => {
-    if(!isPaused) {
-        milliseconds += 10;
+    if (!isPaused) {
+      milliseconds += 10;
 
-        if (milliseconds === 1000) {
-            seconds++;
-            milliseconds = 0;
-        }
+      if (milliseconds === 1000) {
+        seconds++;
+        milliseconds = 0;
+      }
 
-        if (seconds === 60) {
-          minutes++;
-          seconds = 0;
-        }
+      if (seconds === 60) {
+        minutes++;
+        seconds = 0;
+      }
 
       minutesEl.textContent = formatTime(minutes);
-      secondsEl.textContent = formatTime(seconds);  
-      millisecondsEl.textContent = formatMilliseconds(milliseconds);  
-    }   
+      secondsEl.textContent = formatTime(seconds);
+      millisecondsEl.textContent = formatMilliseconds(milliseconds);
+    }
   }, 10);
 
-startBtn.style.display = "none";
-pauseBtn.style.display = "block";
+  startBtn.style.display = "none";
+  pauseBtn.style.display = "block";
 }
 
 
-function pauseTimer(){
+function pauseTimer() {
   isPaused = true;
   pauseBtn.style.display = "none";
   resumeBtn.style.display = "block";
@@ -64,9 +64,9 @@ function resetTimer() {
   secondsEl.textContent = "00"
   millisecondsEl.textContent = "000"
 
-startBtn.style.display = "block";
-pauseBtn.style.display = "none";
-resumeBtn.style.display = "none";
+  startBtn.style.display = "block";
+  pauseBtn.style.display = "none";
+  resumeBtn.style.display = "none";
 }
 
 function formatTime(time) {
@@ -75,4 +75,4 @@ function formatTime(time) {
 
 function formatMilliseconds(time) {
   return time < 100 ? `${time}`.padStart(3, "0") : time;
-  }
+}
